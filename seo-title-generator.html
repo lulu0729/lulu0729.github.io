@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SEO Title Generator</title>
+  <style>
+    :root {
+      --bg: #f3f4f6;
+      --card: #fff;
+      --ink: #111827;
+      --muted: #4b5563;
+      --brand: #0f766e;
+      --line: #d1d5db;
+    }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at 20% 0%, #ecfeff 0%, #f8fafc 45%, #f3f4f6 100%);
+    }
+    main {
+      max-width: 860px;
+      margin: 38px auto;
+      padding: 0 18px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 8px 20px rgba(2, 6, 23, 0.05);
+    }
+    h1 { margin: 0 0 8px; font-size: 34px; }
+    p { color: var(--muted); line-height: 1.65; }
+    label { font-weight: 600; display: block; margin: 14px 0 6px; }
+    input, select {
+      width: 100%;
+      box-sizing: border-box;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 11px 12px;
+      font-size: 15px;
+    }
+    button {
+      margin-top: 14px;
+      background: var(--brand);
+      color: #fff;
+      border: none;
+      padding: 11px 16px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 15px;
+    }
+    .output {
+      margin-top: 18px;
+      padding: 14px;
+      border: 1px solid #99f6e4;
+      background: #f0fdfa;
+      border-radius: 10px;
+      min-height: 44px;
+      font-weight: 600;
+    }
+    .small { margin-top: 16px; font-size: 13px; }
+    a { color: var(--brand); text-decoration: none; }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="card">
+      <h1>SEO Title Generator</h1>
+      <p>Generate click-worthy, search-focused titles in seconds.</p>
+
+      <label for="keyword">Primary keyword</label>
+      <input id="keyword" placeholder="e.g. seo title generator">
+
+      <label for="intent">Search intent</label>
+      <select id="intent">
+        <option value="howto">How-to</option>
+        <option value="best">Best tools</option>
+        <option value="template">Template/list</option>
+      </select>
+
+      <button id="run">Generate Title</button>
+
+      <div id="out" class="output">Your generated title will appear here.</div>
+
+      <p class="small">
+        <a href="./index.html">Back to Entrepreneur OS</a> | <a href="./privacy.html">Privacy Notice</a>
+      </p>
+    </section>
+  </main>
+
+  <script>
+    const formulas = {
+      howto: (k) => `How to Use ${k} to Boost Organic Traffic in 2026`,
+      best: (k) => `11 Best ${k} Tools to Grow Faster This Year`,
+      template: (k) => `${k}: Free Template + Step-by-Step Guide`
+    };
+    document.getElementById("run").addEventListener("click", () => {
+      const keyword = document.getElementById("keyword").value.trim();
+      const intent = document.getElementById("intent").value;
+      const out = document.getElementById("out");
+      if (!keyword) {
+        out.textContent = "Please enter a keyword first.";
+        return;
+      }
+      out.textContent = formulas[intent](keyword.replace(/\s+/g, " ").replace(/\b\w/g, (m) => m.toUpperCase()));
+    });
+  </script>
+</body>
+</html>

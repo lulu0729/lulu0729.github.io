@@ -3,110 +3,83 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SEO Title Generator</title>
+  <title>Entrepreneur OS</title>
   <style>
     :root {
-      --bg: #f3f4f6;
-      --card: #fff;
-      --ink: #111827;
+      --bg: #f6f7fb;
+      --card: #ffffff;
+      --ink: #1f2937;
       --muted: #4b5563;
-      --brand: #0f766e;
       --line: #d1d5db;
+      --accent: #0f766e;
     }
     body {
       margin: 0;
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
       color: var(--ink);
-      background: radial-gradient(circle at 20% 0%, #ecfeff 0%, #f8fafc 45%, #f3f4f6 100%);
+      background: linear-gradient(160deg, #eef2ff 0%, var(--bg) 45%, #ecfeff 100%);
     }
-    main {
+    .wrap {
       max-width: 860px;
-      margin: 38px auto;
-      padding: 0 18px;
+      margin: 48px auto;
+      padding: 0 20px;
     }
     .card {
-      background: var(--card);
-      border: 1px solid var(--line);
-      border-radius: 14px;
-      padding: 22px;
-      box-shadow: 0 8px 20px rgba(2, 6, 23, 0.05);
+      background: #fff;
+      border: 1px solid #d1d5db;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.06);
     }
-    h1 { margin: 0 0 8px; font-size: 34px; }
-    p { color: var(--muted); line-height: 1.65; }
-    label { font-weight: 600; display: block; margin: 14px 0 6px; }
-    input, select {
-      width: 100%;
-      box-sizing: border-box;
-      border: 1px solid var(--line);
-      border-radius: 10px;
-      padding: 11px 12px;
-      font-size: 15px;
-    }
-    button {
-      margin-top: 14px;
-      background: var(--brand);
-      color: #fff;
-      border: none;
-      padding: 11px 16px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 15px;
-    }
-    .output {
-      margin-top: 18px;
-      padding: 14px;
+    h1 { margin-top: 0; font-size: 34px; }
+    h2 { margin-top: 28px; font-size: 20px; }
+    p, li { color: var(--muted); line-height: 1.65; }
+    a { color: var(--accent); text-decoration: none; }
+    .pill {
+      display: inline-block;
+      padding: 6px 10px;
+      border-radius: 999px;
       border: 1px solid #99f6e4;
       background: #f0fdfa;
-      border-radius: 10px;
-      min-height: 44px;
-      font-weight: 600;
+      color: #115e59;
+      font-size: 13px;
+      margin-bottom: 12px;
     }
-    .small { margin-top: 16px; font-size: 13px; }
-    a { color: var(--brand); text-decoration: none; }
   </style>
 </head>
 <body>
-  <main>
+  <main class="wrap">
     <section class="card">
-      <h1>SEO Title Generator</h1>
-      <p>Generate click-worthy, search-focused titles in seconds.</p>
+      <div class="pill">Internal Research Tool</div>
+      <h1>Entrepreneur OS</h1>
+      <p>
+        Entrepreneur OS is an internal keyword research and planning system for owned web properties.
+        It helps evaluate search demand, competition, and opportunity priority.
+      </p>
 
-      <label for="keyword">Primary keyword</label>
-      <input id="keyword" placeholder="e.g. seo title generator">
+      <h2>Core Functions</h2>
+      <ul>
+        <li>Keyword demand and competition analysis</li>
+        <li>Opportunity ranking for planning workflows</li>
+        <li>Internal report generation for decision making</li>
+      </ul>
 
-      <label for="intent">Search intent</label>
-      <select id="intent">
-        <option value="howto">How-to</option>
-        <option value="best">Best tools</option>
-        <option value="template">Template/list</option>
-      </select>
+      <h2>Data Usage</h2>
+      <p>
+        The system uses Google Ads API data for internal analytics and planning.
+        It is not a public SaaS and does not resell Google Ads data.
+      </p>
 
-      <button id="run">Generate Title</button>
+      <h2>Demo Tool</h2>
+      <p><a href="./seo-title-generator.html">Open SEO Title Generator demo</a></p>
 
-      <div id="out" class="output">Your generated title will appear here.</div>
+      <h2>Contact</h2>
+      <p>Email: <a href="mailto:luyiying9@gmail.com">luyiying9@gmail.com</a></p>
 
-      <p class="small">
-        Built by Entrepreneur OS. <a href="./privacy.html">Privacy Notice</a>
+      <p>
+        <a href="./privacy.html">Privacy Notice</a>
       </p>
     </section>
   </main>
-
-  <script>
-    const formulas = {
-      howto: (k) => `How to Use ${k} to Boost Organic Traffic in 2026`,
-      best: (k) => `11 Best ${k} Tools to Grow Faster This Year`,
-      template: (k) => `${k}: Free Template + Step-by-Step Guide`
-    };
-    document.getElementById("run").addEventListener("click", () => {
-      const keyword = document.getElementById("keyword").value.trim();
-      const intent = document.getElementById("intent").value;
-      const out = document.getElementById("out");
-      if (!keyword) {
-        out.textContent = "Please enter a keyword first.";
-        return;
-      }
-      out.textContent = formulas[intent](keyword.replace(/\s+/g, " ").replace(/\b\w/g, (m) => m.toUpperCase()));
-    });
-  </script>
 </body>
 </html>
